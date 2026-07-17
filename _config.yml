@@ -1,0 +1,27 @@
+# deepin Theme Site — Shared Jekyll theme for all deepin Indonesia sites
+# Digunakan sebagai submodule di: home-site, download-site, news-site, dll.
+
+# Site identity (override per repo)
+title: deepin Indonesia
+tagline: Komunitas Resmi Pengguna deepin Linux di Indonesia
+description: >-
+  deepin Indonesia adalah komunitas resmi pengguna dan pengembang deepin Linux di Indonesia.
+
+# Build settings
+markdown: kramdown
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+# Sass
+sass:
+  style: compressed
+  sass_dir: assets/css
+
+# Exclude
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - LICENSE
