@@ -5,11 +5,11 @@ main_nav:
   - title: Home
     url: /
   - title: Download
-    url: /download/
+    url: https://os.deepin.id
   - title: Release Notes
     url: /release-notes/
   - title: News
-    url: /news/
+    url: https://news.deepin.org
   - title: Tips deepin
     url: /news/tag/tips-deepin/
   - title: Gabung Komunitas
