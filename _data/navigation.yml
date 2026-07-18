@@ -3,7 +3,7 @@
 
 main_nav:
   - title: Home
-    url: /
+    url: https://deepin.id
   - title: Download
     url: https://os.deepin.id
   - title: Release Notes
