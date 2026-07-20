@@ -8,6 +8,8 @@ main_nav:
     url: https://os.deepin.id
   - title: News
     children:
+      - title: Semua Artikel
+        url: https://news.deepin.id/
       - title: Release Note
         url: https://news.deepin.id/tag/release-notes/
       - title: Tips deepin
