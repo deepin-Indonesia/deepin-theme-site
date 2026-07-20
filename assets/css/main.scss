@@ -1283,6 +1283,24 @@ a {
   }
 }
 
+.footer-distrowatch {
+  margin-top: .25rem;
+
+  .distrowatch-link {
+    display: inline-flex;
+    align-items: center;
+    gap: .4rem;
+    font-size: .78rem;
+    color: var(--color-gray-400);
+    text-decoration: none;
+    transition: color var(--transition);
+
+    &:hover {
+      color: var(--deepin-blue);
+    }
+  }
+}
+
 .footer-bottom {
   border-top: 1px solid rgba(255,255,255,.08);
   padding-top: 1.5rem;
