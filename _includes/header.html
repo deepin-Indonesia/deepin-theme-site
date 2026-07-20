@@ -18,9 +18,26 @@
     <nav class="main-navigation" role="navigation" aria-label="Main navigation">
       <ul class="nav-menu">
         {% for item in site.data.navigation.main_nav %}
-        <li class="nav-item {% if page.url == item.url %}active{% endif %}">
-          <a href="{{ item.url | relative_url }}" class="nav-link">{{ item.title }}</a>
-        </li>
+          {% if item.children %}
+          <!-- Dropdown menu -->
+          <li class="nav-item dropdown">
+            <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">
+              {{ item.title }} <i class="fas fa-chevron-down dropdown-arrow"></i>
+            </button>
+            <ul class="dropdown-menu" aria-label="{{ item.title }} submenu">
+              {% for child in item.children %}
+              <li class="dropdown-item">
+                <a href="{{ child.url }}" class="dropdown-link">{{ child.title }}</a>
+              </li>
+              {% endfor %}
+            </ul>
+          </li>
+          {% else %}
+          <!-- Regular link -->
+          <li class="nav-item">
+            <a href="{{ item.url }}" class="nav-link">{{ item.title }}</a>
+          </li>
+          {% endif %}
         {% endfor %}
 
         <!-- Tentang deepin dropdown -->
@@ -38,6 +55,11 @@
           </ul>
         </li>
         {% endfor %}
+
+        <!-- Donasi -->
+        <li class="nav-item nav-donasi">
+          <a href="{{ site.data.navigation.donasi.url }}" class="nav-link nav-link-donasi">{{ site.data.navigation.donasi.title }}</a>
+        </li>
       </ul>
     </nav>
   </div>

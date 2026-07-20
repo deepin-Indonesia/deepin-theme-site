@@ -18,8 +18,16 @@
         <strong class="footer-heading">Halaman</strong>
         <ul>
           {% for item in site.data.navigation.main_nav %}
-          <li><a href="{{ item.url | relative_url }}">{{ item.title }}</a></li>
+            {% if item.children %}
+            <li><strong>{{ item.title }}</strong></li>
+              {% for child in item.children %}
+              <li><a href="{{ child.url }}">{{ child.title }}</a></li>
+              {% endfor %}
+            {% else %}
+            <li><a href="{{ item.url }}">{{ item.title }}</a></li>
+            {% endif %}
           {% endfor %}
+          <li><a href="{{ site.data.navigation.donasi.url }}">{{ site.data.navigation.donasi.title }}</a></li>
         </ul>
       </div>
 
