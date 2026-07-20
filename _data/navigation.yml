@@ -21,7 +21,7 @@ main_nav:
 
 donasi:
   title: Donasi
-  url: "#"
+  url: https://donasi.deepin.id
 
 about_deepin_nav:
   - title: Tentang deepin
