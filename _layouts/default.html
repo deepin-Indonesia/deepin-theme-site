@@ -13,6 +13,10 @@
   <meta name="theme-color" content="#1a6dd4">
   <link rel="canonical" href="{{ site.url }}{{ page.url | replace:'index.html','' }}">
 
+  {% if site.webmaster_verifications.google %}
+  <meta name="google-site-verification" content="{{ site.webmaster_verifications.google }}">
+  {% endif %}
+
   <!-- Open Graph / Facebook -->
   <meta property="og:locale" content="id_ID">
   <meta property="og:site_name" content="{{ site.title }}">
@@ -39,7 +43,12 @@
     "name": "deepin Indonesia",
     "alternateName": "Komunitas deepin Indonesia",
     "url": "{{ site.url }}",
-    "logo": "{{ site.url }}/assets/images/deepin-id.png",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "{{ site.url }}/assets/images/deepin-id.png",
+      "width": 512,
+      "height": 512
+    },
     "description": "{{ site.description | strip_newlines | strip }}",
     "foundingDate": "2024",
     "email": "{{ site.email }}",
@@ -53,7 +62,7 @@
       "contactType": "community",
       "url": "https://t.me/Linux_deepin_ID"
     },
-    "member": {
+    "founder": {
       "@type": "Person",
       "name": "Zaky NR",
       "jobTitle": "Lead, deepin Indonesia Community",
@@ -67,6 +76,40 @@
   }
   </script>
 
+  <!-- JSON-LD — WebSite + SearchAction -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "deepin Indonesia",
+    "url": "{{ site.url }}",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": "https://news.deepin.id/?s={search_term_string}"
+      },
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+
+  {% if page.url == '/' %}
+  <!-- JSON-LD — BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "{{ site.url }}"
+    }]
+  }
+  </script>
+  {% endif %}
+
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="{{ '/assets/images/deepin-id.png' | relative_url }}">
   <link rel="apple-touch-icon" href="{{ '/assets/images/deepin-id.png' | relative_url }}">
@@ -79,8 +122,6 @@
   <link rel="preconnect" href="https://cdnjs.cloudflare.com">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all';this.onload=null">
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
-
-  {% seo %}
 </head>
 <body>
   {% include header.html %}
